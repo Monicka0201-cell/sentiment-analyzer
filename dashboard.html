@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Sentiment Dashboard</h1>
+
+    <canvas id="chart"></canvas>
+
+    <script>
+        const data = {
+            labels: ["Positive", "Negative", "Neutral"],
+            datasets: [{
+                label: "Sentiment Count",
+                data: [{{ positive }}, {{ negative }}, {{ neutral }}]
+            }]
+        };
+
+        const config = {
+            type: "pie",
+            data: data
+        };
+
+        new Chart(document.getElementById("chart"), config);
+    </script>
+
+    <p>Total Reviews: {{ total }}</p>
+    <a href="/">Go Back</a>
+</body>
+</html>
